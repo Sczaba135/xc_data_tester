@@ -30,14 +30,15 @@ def csv_to_html(csv_filename, output_folder):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title class="no-hover">{link_text}</title>
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link href="../dist/css/lightbox.css" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css">
 </head>
    <body>
    <nav>
    <a href="#main-content" class="skip-to-content">Skip to main content</a>
      <ul>
-        <li><a href="./index.html">Home Page</a></li>
+        <li><a href="../index.html">Home Page</a></li>
         <li><a href="#summary">Summary</a></li>
         <li><a href="#team-results">Team Results</a></li>
         <li><a href="#individual-results">Individual Results</a></li>
@@ -116,7 +117,10 @@ def csv_to_html(csv_filename, output_folder):
                 html_content += f"""
 <div class="athlete">
 <figure> 
-    <img src="../images/profiles/{profile_pic}" width="200" alt="Profile picture of {name}"> 
+    <a href = "../images/profiles/{profile_pic}" target="_blank" data-lightbox="athlete" data-title="{name}">
+
+        <img src="../images/profiles/{profile_pic}" width="200" alt="Profile picture of {name}"> 
+    </a>
     <figcaption>{name}</figcaption>
 </figure>
 <dl>
@@ -150,6 +154,7 @@ def csv_to_html(csv_filename, output_folder):
 
 
                      </footer>
+        <script src="../dist/js/lightbox-plus-jquery.js"></script>
         </body>
 </html>
 """
